@@ -1,0 +1,357 @@
+/* ==========================================================
+   HABIT SMASH! — comic book dark theme
+   ========================================================== */
+
+:root {
+    --ink:        #0d0d12;
+    --paper-dark: #1a1a24;
+    --panel-bg:   #f4ecd8;
+    --panel-text: #1a1a1a;
+    --red:        #ff2e63;
+    --teal:       #08d9d6;
+    --yellow:     #ffcc00;
+    --purple:     #9d4edd;
+    --green:      #39ff14;
+    --border-w:   4px;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+    margin: 0;
+    min-height: 100vh;
+    background: radial-gradient(circle at 20% 10%, #23233a 0%, var(--paper-dark) 45%, var(--ink) 100%);
+    color: var(--panel-text);
+    font-family: 'Kalam', cursive;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Halftone dot overlay for that classic comic print texture */
+.halftone-overlay {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image: radial-gradient(rgba(255,255,255,0.06) 1.5px, transparent 1.5px);
+    background-size: 14px 14px;
+    z-index: 0;
+    mix-blend-mode: screen;
+}
+
+/* ---------- HEADER ---------- */
+.comic-header {
+    text-align: center;
+    padding: 40px 20px 10px;
+    position: relative;
+    z-index: 1;
+}
+
+.title-pow {
+    font-family: 'Bangers', cursive;
+    font-size: clamp(3rem, 10vw, 6rem);
+    color: var(--yellow);
+    -webkit-text-stroke: 3px var(--ink);
+    text-shadow:
+        4px 4px 0 var(--red),
+        8px 8px 0 var(--ink);
+    letter-spacing: 4px;
+    margin: 0;
+    transform: rotate(-2deg);
+}
+
+.title-smash {
+    color: var(--teal);
+    -webkit-text-stroke: 3px var(--ink);
+    text-shadow: 4px 4px 0 var(--purple), 8px 8px 0 var(--ink);
+}
+
+.subtitle {
+    font-family: 'Permanent Marker', cursive;
+    color: #ccc;
+    font-size: 1rem;
+    margin-top: -8px;
+}
+
+/* ---------- LAYOUT ---------- */
+.board {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px 20px 60px;
+    position: relative;
+    z-index: 1;
+}
+
+/* ---------- COMIC PANEL (shared look) ---------- */
+.comic-panel {
+    background: var(--panel-bg);
+    border: var(--border-w) solid var(--ink);
+    border-radius: 6px;
+    box-shadow: 8px 8px 0 var(--ink);
+    padding: 20px;
+    margin-bottom: 28px;
+    position: relative;
+}
+
+.comic-panel h2 {
+    font-family: 'Bangers', cursive;
+    font-size: 1.6rem;
+    letter-spacing: 1px;
+    margin: 0 0 14px;
+    color: var(--red);
+    -webkit-text-stroke: 1px var(--ink);
+}
+
+.star { color: var(--yellow); -webkit-text-stroke: 0; }
+
+/* ---------- ADD HABIT FORM ---------- */
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.form-row input,
+.form-row select {
+    font-family: 'Kalam', cursive;
+    font-weight: 700;
+    border: 3px solid var(--ink);
+    border-radius: 4px;
+    padding: 10px 12px;
+    background: #fff;
+    color: var(--ink);
+}
+
+.form-row input {
+    flex: 1 1 220px;
+}
+
+.btn-pow {
+    font-family: 'Bangers', cursive;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    background: var(--yellow);
+    color: var(--ink);
+    border: 3px solid var(--ink);
+    border-radius: 50px;
+    padding: 10px 24px;
+    cursor: pointer;
+    box-shadow: 4px 4px 0 var(--ink);
+    transition: transform 0.08s ease, box-shadow 0.08s ease;
+}
+
+.btn-pow:hover {
+    transform: translate(-2px, -2px) rotate(-2deg);
+    box-shadow: 6px 6px 0 var(--ink);
+    background: var(--red);
+    color: #fff;
+}
+
+.btn-pow:active {
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0 var(--ink);
+}
+
+/* ---------- HABIT LIST ---------- */
+.habit-list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.loading-msg {
+    font-family: 'Permanent Marker', cursive;
+    color: #eee;
+    text-align: center;
+}
+
+/* ---------- HABIT CARD ---------- */
+.habit-card {
+    background: var(--panel-bg);
+    border: var(--border-w) solid var(--ink);
+    border-radius: 8px;
+    box-shadow: 8px 8px 0 var(--ink);
+    padding: 18px 20px;
+    position: relative;
+    transform: rotate(0deg);
+    transition: transform 0.15s ease;
+}
+
+.habit-card:nth-child(even) { transform: rotate(0.4deg); }
+.habit-card:nth-child(odd)  { transform: rotate(-0.4deg); }
+
+.habit-card:hover {
+    transform: translateY(-3px) rotate(0deg);
+}
+
+.habit-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.habit-name-wrap {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.habit-icon {
+    font-size: 1.8rem;
+    filter: drop-shadow(2px 2px 0 rgba(0,0,0,0.3));
+}
+
+.habit-name {
+    font-family: 'Bangers', cursive;
+    font-size: 1.4rem;
+    letter-spacing: 0.5px;
+    color: var(--ink);
+}
+
+.streak-badge {
+    font-family: 'Bangers', cursive;
+    background: var(--red);
+    color: #fff;
+    border: 2px solid var(--ink);
+    border-radius: 50px;
+    padding: 4px 14px;
+    font-size: 0.95rem;
+    box-shadow: 3px 3px 0 var(--ink);
+    white-space: nowrap;
+}
+
+.streak-badge.zero {
+    background: #888;
+}
+
+.delete-btn {
+    background: transparent;
+    border: 2px solid var(--ink);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    font-family: 'Bangers', cursive;
+    color: var(--ink);
+    cursor: pointer;
+    line-height: 1;
+    transition: background 0.1s ease, color 0.1s ease, transform 0.1s ease;
+}
+
+.delete-btn:hover {
+    background: var(--ink);
+    color: var(--yellow);
+    transform: scale(1.1) rotate(10deg);
+}
+
+/* ---------- DAY TRACKER ROW ---------- */
+.days-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 6px;
+}
+
+.day-cell {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.day-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #555;
+    text-transform: uppercase;
+}
+
+.day-cell.today .day-label {
+    color: var(--red);
+    text-decoration: underline;
+}
+
+.day-check {
+    width: 38px;
+    height: 38px;
+    border: 3px solid var(--ink);
+    border-radius: 8px;
+    background: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    transition: transform 0.1s ease, background 0.1s ease;
+    user-select: none;
+}
+
+.day-check:hover {
+    transform: scale(1.08);
+}
+
+.day-check.done {
+    background: var(--habit-color, var(--teal));
+    box-shadow: 2px 2px 0 var(--ink);
+}
+
+.day-check.done::after {
+    content: "✔";
+    color: var(--ink);
+    font-weight: 900;
+}
+
+.day-check.pop {
+    animation: pop-anim 0.35s ease;
+}
+
+@keyframes pop-anim {
+    0%   { transform: scale(1); }
+    40%  { transform: scale(1.4) rotate(-8deg); }
+    100% { transform: scale(1) rotate(0); }
+}
+
+/* ---------- BURST LABEL (POW! on toggle) ---------- */
+.burst {
+    position: absolute;
+    font-family: 'Bangers', cursive;
+    color: var(--yellow);
+    -webkit-text-stroke: 2px var(--ink);
+    font-size: 1.4rem;
+    pointer-events: none;
+    animation: burst-anim 0.6s ease forwards;
+    z-index: 5;
+}
+
+@keyframes burst-anim {
+    0%   { opacity: 0; transform: scale(0.4) rotate(-10deg); }
+    30%  { opacity: 1; transform: scale(1.3) rotate(6deg); }
+    100% { opacity: 0; transform: scale(1.6) translateY(-30px) rotate(-4deg); }
+}
+
+/* ---------- EMPTY STATE ---------- */
+.empty-state {
+    text-align: center;
+    font-family: 'Permanent Marker', cursive;
+    color: #ddd;
+    padding: 30px;
+}
+
+/* ---------- FOOTER ---------- */
+.comic-footer {
+    text-align: center;
+    padding: 20px;
+    font-family: 'Permanent Marker', cursive;
+    color: #888;
+    letter-spacing: 1px;
+    position: relative;
+    z-index: 1;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 480px) {
+    .day-check { width: 30px; height: 30px; font-size: 0.9rem; }
+    .habit-name { font-size: 1.15rem; }
+    .form-row { flex-direction: column; }
+}

@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Sign up: Forms & the DOM Workshop</title>
+<style>
+  :root {
+    --ink: #14181f;
+    --panel: #1c2129;
+    --line: #333a46;
+    --text: #eceae3;
+    --dim: #9aa1ad;
+    --amber: #e8a33d;
+    --amber-dim: #c98a2c;
+    --good: #6fbf8b;
+    --bad: #e2695f;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; }
+  body {
+    margin: 0;
+    background: var(--ink);
+    color: var(--text);
+    line-height: 1.5;
+    display: flex;
+    justify-content: center;
+    padding: 48px 20px;
+  }
+  main { width: 100%; max-width: 560px; }
+
+  .eyebrow {
+
+    font-size: 0.78rem;
+    color: var(--amber);
+    letter-spacing: 0.02em;
+    margin: 0 0 6px;
+  }
+  h1 {
+
+    font-weight: 700;
+    font-size: 1.6rem;
+    line-height: 1.25;
+    margin: 0 0 10px;
+  }
+  .lede { color: var(--dim); margin: 0 0 32px; max-width: 46ch; }
+
+  form { display: flex; flex-direction: column; gap: 22px; }
+
+  .field { display: flex; flex-direction: column; gap: 6px; }
+  label { font-size: 0.92rem; color: var(--text); }
+  label .req { color: var(--amber); }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  textarea {
+    font: inherit;
+    font-size: 1rem;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    color: var(--text);
+    padding: 10px 12px;
+    outline: none;
+  }
+  textarea { resize: vertical; min-height: 70px; }
+
+  input:focus-visible, textarea:focus-visible {
+    border-color: var(--amber);
+    box-shadow: 0 0 0 1px var(--amber);
+  }
+  /* only flag validity once the user has actually interacted */
+  input.touched:invalid, textarea.touched:invalid { border-color: var(--bad); }
+  input.touched:valid, textarea.touched:valid { border-color: var(--good); }
+
+  .hint { font-size: 0.8rem; color: var(--dim); }
+  .counter { font-size: 0.78rem; color: var(--dim); align-self: flex-end; }
+
+  fieldset {
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 14px 16px 16px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  fieldset + fieldset { margin-top: 0; }
+  legend {
+    font-size: 0.92rem;
+    padding: 0 6px;
+  }
+  .option { display: flex; align-items: center; gap: 8px; font-size: 0.95rem; }
+  .option input { accent-color: var(--amber); }
+
+  button[type="submit"] {
+    font: inherit;
+    font-size: 0.95rem;
+    background: var(--amber);
+    color: #1a1305;
+    border: none;
+    border-radius: 4px;
+    padding: 12px 18px;
+    cursor: pointer;
+    margin-top: 4px;
+  }
+  button[type="submit"]:hover { background: var(--amber-dim); }
+  button[type="submit"]:active { transform: translateY(1px); }
+
+  /* confirmation panel */
+  #confirmation {
+    display: none;
+    border: 1px solid var(--good);
+    border-radius: 6px;
+    padding: 20px;
+    background: var(--panel);
+  }
+  #confirmation h2 {
+    color: var(--good);
+    font-size: 1.1rem;
+    margin: 0 0 12px;
+  }
+  #confirmation dl { margin: 0; }
+  #confirmation dt { color: var(--dim); font-size: 0.8rem; margin-top: 10px; }
+  #confirmation dd { margin: 2px 0 0; }
+
+  @media (prefers-color-scheme: light) {
+    :root:not([data-theme="dark"]) {
+      --ink: #f7f5f0; --panel: #ffffff; --line: #d8d3c6; --text: #23201a; --dim: #6b6558;
+    }
+  }
+</style>
+</head>
+<body>
+<main>
+  <p class="eyebrow">workshop registration</p>
+  <h1>Forms &amp; the DOM: a live workshop</h1>
+  <p class="lede">Fill this out and submit — no server involved. The confirmation below is built entirely with HTML validation attributes, CSS state selectors, and a few DOM API calls.</p>
+
+  <form id="signup" novalidate>
+    <div class="field">
+      <label for="name">Name <span class="req">*</span></label>
+      <input type="text" id="name" name="name" required minlength="2" autocomplete="name" />
+    </div>
+
+    <div class="field">
+      <label for="email">Email <span class="req">*</span></label>
+      <input type="email" id="email" name="email" required autocomplete="email" />
+      <span class="hint">Used only to send your workshop link.</span>
+    </div>
+
+    <div class="field">
+      <label for="phone">Phone (optional)</label>
+      <input type="tel" id="phone" name="phone" pattern="[0-9 +().-]{7,}" placeholder="555-0100" />
+    </div>
+
+    <fieldset>
+      <legend>Experience level <span class="req">*</span></legend>
+      <label class="option"><input type="radio" name="level" value="beginner" required checked> Beginner</label>
+      <label class="option"><input type="radio" name="level" value="intermediate"> Intermediate</label>
+      <label class="option"><input type="radio" name="level" value="advanced"> Advanced</label>
+    </fieldset>
+
+    <fieldset>
+      <legend>Topics you're most interested in</legend>
+      <label class="option"><input type="checkbox" name="topics" value="CSS selectors"> CSS selectors &amp; layout</label>
+      <label class="option"><input type="checkbox" name="topics" value="Form validation"> Form validation</label>
+      <label class="option"><input type="checkbox" name="topics" value="DOM APIs"> DOM APIs &amp; JavaScript</label>
+    </fieldset>
+
+    <div class="field">
+      <label for="bio">One thing you want to build (optional)</label>
+      <textarea id="bio" name="bio" maxlength="120"></textarea>
+      <output class="counter" for="bio" id="bioCount">120 characters left</output>
+    </div>
+
+    <button type="submit">Reserve my spot</button>
+  </form>
+
+  <div id="confirmation">
+    <h2>You're in.</h2>
+    <dl id="summary"></dl>
+  </div>
+</main>
+
+<script>
+  const form = document.getElementById('signup');
+  const bio = document.getElementById('bio');
+  const bioCount = document.getElementById('bioCount');
+  const confirmation = document.getElementById('confirmation');
+  const summary = document.getElementById('summary');
+
+  // live character counter using the maxlength attribute + Node API
+  bio.addEventListener('input', () => {
+    const remaining = bio.maxLength - bio.value.length;
+    bioCount.textContent = `${remaining} characters left`;
+  });
+
+  // mark a field "touched" on blur so :invalid styling doesn't show before the user interacts
+  form.querySelectorAll('input, textarea').forEach((el) => {
+    el.addEventListener('blur', () => el.classList.add('touched'));
+  });
+
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    // mark everything touched so any remaining errors are visible
+    form.querySelectorAll('input, textarea').forEach((el) => el.classList.add('touched'));
+
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    const data = new FormData(form);
+    const topics = data.getAll('topics');
+
+    summary.innerHTML = `
+      <dt>Name</dt><dd>${data.get('name')}</dd>
+      <dt>Email</dt><dd>${data.get('email')}</dd>
+      <dt>Phone</dt><dd>${data.get('phone') || '—'}</dd>
+      <dt>Level</dt><dd>${data.get('level')}</dd>
+      <dt>Topics</dt><dd>${topics.length ? topics.join(', ') : 'None selected'}</dd>
+      <dt>Notes</dt><dd>${data.get('bio') || '—'}</dd>
+    `;
+
+    form.style.display = 'none';
+    confirmation.style.display = 'block';
+  });
+</script>
+</body>
+</html>

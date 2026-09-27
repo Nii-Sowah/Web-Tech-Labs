@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Lesson 5: Forms & HTML APIs</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --text: #22221f;
+    --dim: #6b6a63;
+    --accent: #7a5c3e;
+    --line: #e2dfd6;
+    --code-bg: #f1efe8;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: Georgia, "Iowan Old Style", serif;
+    line-height: 1.6;
+  }
+  .wrap { max-width: 700px; margin: 0 auto; padding: 56px 24px 80px; }
+
+  header { margin-bottom: 40px; }
+  .kicker { color: var(--accent); font-size: 0.85rem; letter-spacing: 0.03em; margin: 0 0 8px; }
+  h1 { font-size: 2rem; line-height: 1.2; margin: 0 0 10px; }
+  .sub { color: var(--dim); margin: 0; max-width: 55ch; }
+
+  nav.toc {
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    padding: 16px 0;
+    margin: 32px 0 48px;
+    font-size: 0.92rem;
+  }
+  nav.toc ol { margin: 0; padding-left: 1.2em; }
+  nav.toc a { color: var(--text); }
+
+  section { margin-bottom: 48px; }
+  h2 {
+    font-size: 1.4rem;
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 6px;
+    margin: 0 0 16px;
+  }
+  h3 { font-size: 1.1rem; margin: 24px 0 8px; }
+  p { margin: 0 0 14px; }
+  ul, ol { margin: 0 0 14px; padding-left: 1.3em; }
+  li { margin-bottom: 6px; }
+
+  code {
+    font-family: "SFMono-Regular", Consolas, Menlo, monospace;
+    background: var(--code-bg);
+    padding: 1px 5px;
+    border-radius: 3px;
+    font-size: 0.88em;
+  }
+  pre {
+    background: var(--code-bg);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 14px 16px;
+    overflow-x: auto;
+    font-size: 0.85rem;
+  }
+  pre code { background: none; padding: 0; }
+
+  .note {
+    border-left: 3px solid var(--accent);
+    background: var(--code-bg);
+    padding: 10px 16px;
+    font-size: 0.92rem;
+    margin: 16px 0;
+  }
+
+  table { width: 100%; border-collapse: collapse; margin: 12px 0 16px; font-size: 0.92rem; }
+  th, td { text-align: left; padding: 6px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { color: var(--dim); font-weight: normal; }
+
+  footer { color: var(--dim); font-size: 0.85rem; border-top: 1px solid var(--line); padding-top: 16px; margin-top: 48px; }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #1b1a17; --text: #eae7de; --dim: #a29d8e; --accent: #d3a56d; --line: #3a3833; --code-bg: #26241f;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <h1>Forms &amp; HTML APIs</h1>
+    <p class="sub">How HTML alone lets users submit data.</p>
+  </header>
+
+  <nav class="toc">
+    <ol>
+      <li><a href="#forms">Forms</a></li>
+      <li><a href="#submitting">Submitting forms</a></li>
+      <li><a href="#controls">Radio buttons &amp; checkboxes</a></li>
+      <li><a href="#labels">Labels &amp; fieldsets</a></li>
+      <li><a href="#validation">Built-in validation</a></li>
+      <li><a href="#apis">HTML APIs &amp; the DOM</a></li>
+    </ol>
+  </nav>
+
+  <section id="forms">
+    <h2>Forms</h2>
+    <p>The <code>&lt;form&gt;</code> element is a landmark containing interactive controls for submitting information. With plain HTML — no JavaScript required — you can enable users to enter data, validate it client-side, and submit it to a server.</p>
+    <p>HTML attributes can require a field, define what a valid value looks like, and block submission until the data matches. All of this is called <strong>constraint validation</strong>, and it happens automatically unless disabled with <code>novalidate</code>.</p>
+  </section>
+
+  <section id="submitting">
+    <h2>Submitting forms</h2>
+    <p>A form submits when a submit button inside it is activated:</p>
+    <pre><code>&lt;input type="submit" value="Submit Form"&gt;
+&lt;button type="submit"&gt;Submit Form&lt;/button&gt;</code></pre>
+    <p>Two attributes on <code>&lt;form&gt;</code> control where the data goes:</p>
+    <table>
+      <tr><th>Attribute</th><th>Purpose</th></tr>
+      <tr><td><code>action</code></td><td>URL that processes the submission (defaults to the current page)</td></tr>
+      <tr><td><code>method</code></td><td><code>GET</code> appends data to the URL as a query string; <code>POST</code> sends it in the request body — always use POST for sensitive data</td></tr>
+    </table>
+    <p>Only named form controls are submitted, as <code>name=value</code> pairs. A control's value comes from its <code>value</code> attribute or whatever the user typed/picked. Unselected checkboxes and radio buttons are left out entirely.</p>
+    <div class="note">There's also a third method, <code>dialog</code>: submitting a form inside a <code>&lt;dialog&gt;</code> closes it without sending or clearing the data.</div>
+  </section>
+
+  <section id="controls">
+    <h2>Radio buttons &amp; checkboxes</h2>
+    <h3>Radio buttons</h3>
+    <p>Giving a group of radio buttons the same <code>name</code> makes them mutually exclusive — selecting one deselects the others in that group. Add <code>checked</code> to preselect one, and <code>required</code> on at least one to force a choice.</p>
+    <h3>Checkboxes</h3>
+    <p>Checkboxes can safely share a <code>name</code> too — only the checked ones submit. Always give each one an explicit <code>value</code>, or every checked box submits the unhelpful default value <code>on</code>.</p>
+  </section>
+
+  <section id="labels">
+    <h2>Labels &amp; fieldsets</h2>
+    <p>Every form control needs a <code>&lt;label&gt;</code> so users — especially screen reader users — know what's expected. Labels also expand the clickable "hit area" of a control.</p>
+    <pre><code>&lt;!-- explicit --&gt;
+&lt;label for="full_name"&gt;Your name&lt;/label&gt;
+&lt;input type="text" id="full_name" name="name"&gt;
+
+&lt;!-- implicit --&gt;
+&lt;label&gt;Your name
+  &lt;input type="text" name="name"&gt;
+&lt;/label&gt;</code></pre>
+    <p>A group of controls — like a set of radio buttons — needs its own label too. That's what <code>&lt;fieldset&gt;</code> and <code>&lt;legend&gt;</code> are for:</p>
+    <pre><code>&lt;fieldset&gt;
+  &lt;legend&gt;Who is your favorite student?&lt;/legend&gt;
+  &lt;label&gt;&lt;input type="radio" name="machine" value="hoover"&gt; Hoover&lt;/label&gt;
+  &lt;label&gt;&lt;input type="radio" name="machine" value="toasty"&gt; Toasty&lt;/label&gt;
+&lt;/fieldset&gt;</code></pre>
+  </section>
+
+  <section id="validation">
+    <h2>Built-in validation</h2>
+    <p>Certain attributes create client-side constraints that block submission until satisfied:</p>
+    <table>
+      <tr><th>Attribute</th><th>What it checks</th></tr>
+      <tr><td><code>required</code></td><td>A value must be present</td></tr>
+      <tr><td><code>min</code> / <code>max</code></td><td>Numeric, date, or time value must fall in range</td></tr>
+      <tr><td><code>minlength</code> / <code>maxlength</code></td><td>Text length bounds</td></tr>
+      <tr><td><code>pattern</code></td><td>Value must match a regular expression</td></tr>
+      <tr><td><code>type</code></td><td>Value must be a valid email, URL, number, etc.</td></tr>
+    </table>
+    <p>CSS pseudo-classes track this state live: <code>:required</code>, <code>:optional</code>, <code>:valid</code>, <code>:invalid</code>, <code>:in-range</code>, and <code>:out-of-range</code> update as the user types. The browser's own error messages, though, only appear at submission time.</p>
+    <div class="note">Avoid styling a submit button to look disabled with <code>form:invalid [type="submit"] { pointer-events: none; }</code> — it blocks the constraint validation messages many users rely on to understand what's wrong.</div>
+  </section>
+
+  <section id="apis">
+    <h2>HTML APIs &amp; the DOM</h2>
+    <p>The <strong>DOM</strong> (Document Object Model) is the tree of node objects — elements, attributes, and text — that make up a loaded page. The parallel <strong>AOM</strong> (Accessibility Object Model) exposes that same tree to assistive technology.</p>
+    <p>Every element type has a matching JavaScript interface for reading and changing it. For example:</p>
+    <pre><code>let allImages = document.querySelectorAll('img');
+allImages.forEach((img) => console.log(img.alt));</code></pre>
+    <p>These interfaces inherit from one another: <code>HTMLImageElement</code> and friends inherit from <code>HTMLElement</code>, which inherits from <code>Element</code>, which inherits from <code>Node</code>, which inherits from <code>EventTarget</code> — the source of <code>addEventListener()</code>.</p>
+    <table>
+      <tr><th>Interface</th><th>Represents</th></tr>
+      <tr><td><code>Node</code></td><td>Any tree node — provides <code>firstChild</code>, <code>appendChild()</code>, <code>cloneNode()</code></td></tr>
+      <tr><td><code>Document</code></td><td>The loaded page itself — <code>document.body</code>, <code>document.cookie</code></td></tr>
+      <tr><td><code>Window</code></td><td>The browser tab/window — <code>resizeTo()</code>, <code>devicePixelRatio</code></td></tr>
+    </table>
+  </section>
+
+
+</div>
+</body>
+</html>
