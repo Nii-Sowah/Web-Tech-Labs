@@ -71,7 +71,7 @@
     border-color: var(--amber);
     box-shadow: 0 0 0 1px var(--amber);
   }
-  /* only flag validity once the user has actually interacted */
+
   input.touched:invalid, textarea.touched:invalid { border-color: var(--bad); }
   input.touched:valid, textarea.touched:valid { border-color: var(--good); }
 
@@ -109,7 +109,7 @@
   button[type="submit"]:hover { background: var(--amber-dim); }
   button[type="submit"]:active { transform: translateY(1px); }
 
-  /* confirmation panel */
+
   #confirmation {
     display: none;
     border: 1px solid var(--good);
@@ -192,13 +192,13 @@
   const confirmation = document.getElementById('confirmation');
   const summary = document.getElementById('summary');
 
-  // live character counter using the maxlength attribute + Node API
+
   bio.addEventListener('input', () => {
     const remaining = bio.maxLength - bio.value.length;
     bioCount.textContent = `${remaining} characters left`;
   });
 
-  // mark a field "touched" on blur so :invalid styling doesn't show before the user interacts
+
   form.querySelectorAll('input, textarea').forEach((el) => {
     el.addEventListener('blur', () => el.classList.add('touched'));
   });
@@ -206,7 +206,7 @@
   form.addEventListener('submit', (event) => {
     event.preventDefault();
 
-    // mark everything touched so any remaining errors are visible
+
     form.querySelectorAll('input, textarea').forEach((el) => el.classList.add('touched'));
 
     if (!form.checkValidity()) {
