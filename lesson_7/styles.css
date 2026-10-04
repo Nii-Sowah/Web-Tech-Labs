@@ -1,0 +1,140 @@
+html {
+  box-sizing: border-box;
+  font-size: 1em;
+}
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #15110f;
+  color: #f4e7d0;
+}
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1em 1.5em 3em;
+}
+section {
+  margin-bottom: 3em;
+}
+code {
+  background: #2a201b;
+  padding: 0.1em 0.4em;
+  border-radius: 3px;
+}
+
+header {
+  background-color: #0d0b0a;
+  color: #f4e7d0;
+  padding: 1.5em;
+}
+header h1 {
+  margin: 0 0 0.5em;
+  font-size: calc(1.5rem + 2vw);
+}
+.nav-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
+  margin: 0;
+  padding: 0;
+}
+.nav-list a {
+  display: inline-block;
+  color: #15110f;
+  text-decoration: none;
+  padding: 0.5em 1em;
+  background-color: #b8322a;
+  border-radius: 4px;
+}
+.nav-list a:hover {
+  background-color: #d94a3f;
+}
+
+.box-demo {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2em;
+}
+.box {
+  width: 300px;
+  padding: 20px;
+  margin: 10px;
+  border: 5px solid #8f2d24;
+  background-color: #2a201b;
+}
+.alternate {
+  box-sizing: border-box;
+}
+
+
+.container {
+  border: 3px solid #b8322a;
+  padding: 10px;
+}
+.container p {
+  background-color: #211915;
+  border: 2px solid #8f2d24;
+  padding: 10px;
+}
+.p-one {
+  margin-bottom: 50px;
+}
+.p-two {
+  margin-top: 30px;
+}
+
+
+.block-box {
+  display: block;
+  border: 2px solid #8f2d24;
+  padding: 0.5em;
+  background-color: #3a2116;
+}
+.inline-box {
+  background-color: #32251d;
+  padding: 10px;
+  border: 2px solid #b8322a;
+}
+.inline-block-box {
+  display: inline-block;
+  background-color: #32251d;
+  padding: 10px;
+  border: 2px solid #b8322a;
+}
+
+
+.wrapper {
+  display: block;
+}
+.col1, .col2 {
+  background-color: #211915;
+  padding: 1em;
+  margin-bottom: 1em;
+}
+.col2 img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+@media screen and (width >= 600px) {
+  .wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5em;
+  }
+}
+
+
+footer {
+  text-align: center;
+  padding: 1.5em;
+  background-color: #0d0b0a;
+  color: #f4e7d0;
+}

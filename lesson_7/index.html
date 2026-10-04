@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>Album Info Using CSS Box Model</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header>
+    <h1>Album Info Using CSS Box Model</h1>
+    <nav>
+      <ul class="nav-list">
+        <li><a href="#box-model">Box Model</a></li>
+        <li><a href="#margins">Margins</a></li>
+        <li><a href="#responsive">Responsive Layout</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <section id="box-model">
+      <h2>Standard vs. Alternative Box Model</h2>
+      <p>Both boxes below share the same <code>width</code>, <code>padding</code>, and <code>border</code>.
+         The second uses <code>box-sizing: border-box</code>, so its total rendered width stays at 300px
+         instead of growing past it.</p>
+      <div class="box-demo">
+        <div class="box standard">Standard box model</div>
+        <div class="box alternate">Alternative box model</div>
+      </div>
+    </section>
+
+    <section id="margins">
+      <h2>Margin Collapsing</h2>
+      <p>The first paragraph has <code>margin-bottom: 50px</code>; the second has
+         <code>margin-top: 30px</code>. The gap between them is 50px, not 80px so the larger margin wins.</p>
+      <div class="container">
+        <p class="p-one">I am paragraph one.</p>
+        <p class="p-two">I am paragraph two.</p>
+      </div>
+    </section>
+
+    <section id="responsive">
+      <h2>Responsive Layout</h2>
+      <p>Resize your browser window - this layout switches from a single column to a two-column grid
+         at a 600px breakpoint.</p>
+      <div class="wrapper">
+        <div class="col1">
+          <h3>Watch my size!</h3>
+          <p>This heading uses <code>calc(1.5rem + 2vw)</code> so it scales smoothly with the viewport
+             while staying zoomable.</p>
+        </div>
+        <div class="col2">
+          <img src="smf.jpg" alt="An image of the album cover for 'So Much Fun' by Young Thug" />
+          <p>This image has its <code>max-width:</code> set to <code>100%</code>, so it never overflows its column.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>Tap into So Much Fun - Young Thug</p>
+  </footer>
+
+</body>
+</html>
