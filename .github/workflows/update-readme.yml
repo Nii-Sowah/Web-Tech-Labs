@@ -1,0 +1,33 @@
+name: Auto Update README
+
+on:
+  push:
+    branches:
+      - main  # Change to master if your default branch uses that name
+
+permissions:
+  contents: write # Grants the action permission to push code changes back to the repo
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Modify README file
+        run: |
+          # Example 1: Update a "Last Updated" timestamp string
+          DATE=$(date +"%Y-%m-%d %H:%M:%S")
+          sed -i "s/Last Updated: .*/Last Updated: $DATE/" README.md
+          
+          # Example 2: Run a custom script (Python, Node, etc.) to generate complex tables or lists
+          # python update_script.py
+
+      - name: Commit and Push changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add README.md
+          git commit -m "docs: automated README update [skip ci]" || echo "No changes to commit"
+          git push
