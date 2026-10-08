@@ -55,3 +55,4 @@ These labs follow the HTML learning path from [web.dev/learn/html](https://web.d
 ## License
 
 Coursework for personal learning purposes.
+
