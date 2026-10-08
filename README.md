@@ -1,5 +1,16 @@
 # Web-Tech-Labs
 
+<!-- START_TIMESTAMP -->
+<!-- END_TIMESTAMP -->
+
+## Table of Contents
+<!-- START_TOC -->
+<!-- END_TOC -->
+
+## Repository Statistics
+<!-- START_STATS -->
+<!-- END_STATS -->
+
 # HTML & CSS Course Labs
 
 This repository contains my completed labs and exercises for the HTML/CSS course, based on the [web.dev Learn HTML](https://web.dev/learn/html) curriculum. Each folder corresponds to a lesson topic and includes a working HTML/CSS example built while studying that lesson's concepts.

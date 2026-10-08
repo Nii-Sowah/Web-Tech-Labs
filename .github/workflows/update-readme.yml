@@ -1,33 +1,34 @@
-name: Auto Update README
+name: Auto Update README Elements
 
 on:
   push:
     branches:
-      - main  # Change to master if your default branch uses that name
+      - main  # Change to master if your default branch is master
 
 permissions:
-  contents: write # Grants the action permission to push code changes back to the repo
+  contents: write
 
 jobs:
-  update-readme:
+  refresh-readme:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
+      - name: Checkout repository with full history
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Required to accurately calculate total commit count
 
-      - name: Modify README file
-        run: |
-          # Example 1: Update a "Last Updated" timestamp string
-          DATE=$(date +"%Y-%m-%d %H:%M:%S")
-          sed -i "s/Last Updated: .*/Last Updated: $DATE/" README.md
-          
-          # Example 2: Run a custom script (Python, Node, etc.) to generate complex tables or lists
-          # python update_script.py
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-python-version: '3.10'
+
+      - name: Run README Generator Script
+        run: python .github/update_readme.py
 
       - name: Commit and Push changes
         run: |
           git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config user.email "41898282+github-actions[bot]@://github.com"
           git add README.md
-          git commit -m "docs: automated README update [skip ci]" || echo "No changes to commit"
+          git commit -m "docs: automated update of TOC, stats, and timestamp [skip ci]" || echo "No changes to commit"
           git push
