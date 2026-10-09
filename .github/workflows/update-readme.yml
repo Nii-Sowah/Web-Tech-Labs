@@ -20,10 +20,10 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-python-version: '3.10'
+          python-version: '3.10'
 
       - name: Run README Generator Script
-        run: python .github/update_readme.py
+        run: python .github/update-readme.py
 
       - name: Commit and Push changes
         run: |
