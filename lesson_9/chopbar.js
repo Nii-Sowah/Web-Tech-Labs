@@ -41,8 +41,8 @@ const menuEl = document.getElementById("menu");
 
 for (let i = 0; i< items.length; i++) {
     const li = document.createElement("li");
-    li.tectContent = item[i] + " - GHS " + prices[i];
-    menu.El.appendChild(li);
+    li.textContent = items[i] + " - GHS " + prices[i];
+    menuEl.appendChild(li);
 }
 
 document.getElementById("customer").textContent = "Customer: " + customer.name + ", Table " + customer.table;
