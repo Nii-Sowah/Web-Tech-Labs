@@ -11,7 +11,7 @@ let customer = {name: "Ama", table: 5};
 
 document.getElementById("bar-name").textContent = BAR_NAME;
 
-const subtotal = JOLLOF_RICE * Number(JollofQty) + SOBOLO_PRICE * Number(soboloQty);
+const subtotal = JOLLOF_RICE * Number(jollofQty) + SOBOLO_PRICE * Number(soboloQty);
 
 
 console.log("Subtotal > 100", subtotal > 100);
@@ -22,7 +22,7 @@ console.log('"10" == 10:', "10" == 10);
 console.log('"10" === 10:', "10" === 10);
 
 const messageEl = document.getElementById("message");
-if (subtotal >= 100) {
+if (subtotal >= 150) {
     messageEl.textContent = "Big order! Free drinks on us.";
 } else if (subtotal >= 50) {
     messageEl.textContent = "Thanks for your order!";
