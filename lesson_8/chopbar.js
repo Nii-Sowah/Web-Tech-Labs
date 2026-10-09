@@ -24,14 +24,13 @@ const quantities = [2, 3];
 const subtotal = lineCost(prices[0], quantities[0]) + lineCost(prices[1], quantities[1]);
 console.log("Subtotal:", subtotal);
 
-const getsDiscount = isMemeber && subtotal >= 100;
+const getsDiscount = isMember && subtotal >= 100;
 console.log("Gets discount:", getsDiscount);
 
 const total = calculateTotal(subtotal);
 console.log("Total:", total);
 
 document.getElementById("bar-name").textContent = BAR_NAME;
-document.getElementById("subtotal").textContent = "Subtotal: GHS " + subtotal.toFixed(2);
 document.getElementById("bill").textContent = "Total: GHS " + total.toFixed(2);
 
 const receipt = document.getElementById("receipt");
