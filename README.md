@@ -1,14 +1,23 @@
 # Web-Tech-Labs
 
-<!-- START_TIMESTAMP -->
-<!-- END_TIMESTAMP -->
+<!-- START_TIMESTAMP -->2026-10-09 02:45:24 UTC<!-- END_TIMESTAMP -->
 
 ## Table of Contents
 <!-- START_TOC -->
+- [Table of Contents](#table-of-contents)
+- [Repository Statistics](#repository-statistics)
+- [Repository structure](#repository-structure)
+- [Labs completed](#labs-completed)
+- [How to view a lab](#how-to-view-a-lab)
+- [Adding a new lab](#adding-a-new-lab)
+- [Course](#course)
+- [License](#license)
 <!-- END_TOC -->
 
 ## Repository Statistics
 <!-- START_STATS -->
+- **Total Commits:** 20
+- **Project Files Tracked:** 20
 <!-- END_STATS -->
 
 # HTML & CSS Course Labs
