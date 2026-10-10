@@ -1,126 +1,363 @@
 <!doctype html>
 <html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Web Tech Labs: Nii Sowah</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;800&display=swap">
-<link rel="stylesheet" href="styles.css">
-</head>
-<body>
-<div class="blobs" aria-hidden="true"><i></i><i></i><i></i></div>
-<div class="wrap">
-<header class="top">
- <strong>Nii Sowah / Web Tech Labs</strong>
- <nav aria-label="Pages"><a href="#home">Home</a><a href="#schedule">Schedule</a><a href="#signup">Workshop</a><a href="#responsive">Responsive</a><a href="#forms">Forms lab</a><a href="#gallery">Gallery</a><a href="#quiz">Quiz</a><a href="#progress">Progress</a>
- <button id="theme" type="button" aria-label="Toggle dark mode">Theme</button></nav>
-</header>
+  <head>
+    <meta charset="utf-8">
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    >
+    <title>Web Tech Labs: Nii Sowah</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;800&display=swap"
+    >
+    <link rel="stylesheet" href="styles.css">
+  </head>
 
-<main>
-<section class="page on" id="home">
-<div class="hero">
- <div>
-  <h1>Every lab, running live.</h1>
-  <p class="lede">The labs from my web technologies course, rebuilt as one working site: the box model, tables and links, forms with validation, and the DOM. Start by changing the box on the right.</p>
- </div>
- <div class="lab" aria-label="Box model playground">
-  <div class="stage"><div id="L-m"><div id="L-b"><div id="L-p"><div id="L-c">content</div></div></div></div></div>
-  <div class="ctrl"><label for="rm">margin</label><input id="rm" type="range" min="0" max="40" value="16"><output id="om">16</output></div>
-  <div class="ctrl"><label for="rb">border</label><input id="rb" type="range" min="0" max="20" value="6"><output id="ob">6</output></div>
-  <div class="ctrl"><label for="rp">padding</label><input id="rp" type="range" min="0" max="40" value="16"><output id="op">16</output></div>
-  <div class="seg" role="group" aria-label="box-sizing">
-   <button type="button" data-bs="content-box" aria-pressed="true">content-box</button>
-   <button type="button" data-bs="border-box" aria-pressed="false">border-box</button>
-  </div>
-  <p class="read" id="read" aria-live="polite"></p>
- </div>
-</div>
-<h2 style="margin-top:48px">Explore the labs</h2>
-<div class="cards" id="cards"></div>
-</section>
+  <body>
+    <div class="blobs" aria-hidden="true">
+      <i></i>
+      <i></i>
+      <i></i>
+    </div>
 
-<section class="page" id="schedule">
- <h2>Class schedule</h2>
- <p class="lede">From the links and tables lab. Click a course to jump to its details, using fragment links.</p>
- <div class="scroll"><table>
-  <caption>Weekly class schedule, fall semester</caption>
-  <thead><tr><th scope="col">Time</th><th scope="col">Monday</th><th scope="col">Tuesday</th><th scope="col">Wednesday</th><th scope="col">Thursday</th><th scope="col">Friday</th></tr></thead>
-  <tbody id="rows"></tbody>
- </table></div>
- <div class="courses" id="courses"></div>
-</section>
+    <div class="wrap">
+      <header class="top">
+        <strong>Nii Sowah / Web Tech Labs</strong>
+        <nav aria-label="Pages">
+          <a href="#home">Home</a>
+          <a href="#schedule">Schedule</a>
+          <a href="#signup">Workshop</a>
+          <a href="#responsive">Responsive</a>
+          <a href="#forms">Forms lab</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#quiz">Quiz</a>
+          <a href="#progress">Progress</a>
+          <button id="theme" type="button" aria-label="Toggle dark mode">
+            Theme
+          </button>
+        </nav>
+      </header>
 
-<section class="page" id="signup">
- <h2>Workshop sign-up</h2>
- <p class="lede">From the forms lab. HTML attributes handle the validation, CSS shows the state, and the DOM builds the confirmation.</p>
- <div class="lab">
- <form id="f" novalidate>
-  <div class="field"><label for="name">Name</label><input type="text" id="name" name="name" required minlength="2" autocomplete="name"></div>
-  <div class="field"><label for="email">Email</label><input type="email" id="email" name="email" required autocomplete="email"><span class="hint">Used only to send your workshop link.</span></div>
-  <div class="field"><label for="phone">Phone (optional)</label><input type="tel" id="phone" name="phone" pattern="[0-9 +().\-]{7,}" placeholder="555-0100"></div>
-  <fieldset><legend>Experience level</legend>
-   <label><input type="radio" name="level" value="beginner" required checked> Beginner</label>
-   <label><input type="radio" name="level" value="intermediate"> Intermediate</label>
-   <label><input type="radio" name="level" value="advanced"> Advanced</label></fieldset>
-  <fieldset><legend>Topics you want</legend>
-   <label><input type="checkbox" name="topics" value="CSS and layout"> CSS and layout</label>
-   <label><input type="checkbox" name="topics" value="Form validation"> Form validation</label>
-   <label><input type="checkbox" name="topics" value="DOM and JavaScript"> DOM and JavaScript</label></fieldset>
-  <div class="field"><label for="bio">One thing you want to build (optional)</label><textarea id="bio" name="bio" maxlength="120"></textarea><output class="hint" for="bio" id="cnt">120 characters left</output></div>
-  <button class="primary" type="submit">Reserve my spot</button>
- </form>
- <div id="done" tabindex="-1"><h3>You're in.</h3><dl id="sum"></dl><button type="button" id="again">Sign up another person</button></div>
- </div>
-</section>
+      <main>
+        <section class="page on" id="home">
+          <div class="hero">
+            <div>
+              <h1>Every lab, running live.</h1>
+              <p class="lede">
+                The labs from my web technologies course, rebuilt as one
+                working site: the box model, tables and links, forms with
+                validation, and the DOM. Start by changing the box on the
+                right.
+              </p>
+            </div>
 
-<section class="page" id="progress">
- <h2>Lab progress</h2>
- <p class="lede">Last repo check: 11 commits, lessons 8 to 11 still empty. Add content there and I'll build the next pages.</p>
- <ul class="labs" id="labs"></ul>
-</section>
+            <div class="lab" aria-label="Box model playground">
+              <div class="stage">
+                <div id="L-m">
+                  <div id="L-b">
+                    <div id="L-p">
+                      <div id="L-c">content</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
-<section class="page" id="responsive">
- <h2>Responsive lab</h2>
- <p class="lede">From the box model and responsive lab. Drag the corner of the dashed frame, or use the slider. The grid reacts to the frame's width with container queries, the same idea as media queries.</p>
- <div class="lab">
-  <div class="ctrl"><label for="fw">frame width</label><input id="fw" type="range" min="240" max="900" value="700"><output id="fo">700</output></div>
-  <div id="frame"><div class="g"><div>One</div><div>Two</div><div>Three</div><div>Four</div><div>Five</div><div>Six</div></div></div>
-  <p class="read" id="bp" aria-live="polite"></p>
-  <p class="fluid">This heading scales with clamp()</p>
-  <p class="read">Window width: <b id="vw"></b>px. Resize your browser to watch the heading change size.</p>
- </div>
- <h2 style="margin-top:32px">Block, inline, inline-block</h2>
- <div class="lab disp"><span class="bl">block: takes the full row</span><span class="il">inline: ignores width</span><span class="il">inline: flows with text</span><span class="ib">inline-block: has a size</span><span class="ib">inline-block</span></div>
-</section>
+              <div class="ctrl">
+                <label for="rm">margin</label>
+                <input id="rm" type="range" min="0" max="40" value="16">
+                <output id="om">16</output>
+              </div>
+              <div class="ctrl">
+                <label for="rb">border</label>
+                <input id="rb" type="range" min="0" max="20" value="6">
+                <output id="ob">6</output>
+              </div>
+              <div class="ctrl">
+                <label for="rp">padding</label>
+                <input id="rp" type="range" min="0" max="40" value="16">
+                <output id="op">16</output>
+              </div>
 
-<section class="page" id="forms">
- <h2>Forms lab</h2>
- <p class="lede">From the forms and HTML APIs notes. Pick a constraint, type a value, and see the browser's ValidityState update live.</p>
- <div class="lab">
-  <div class="field"><label for="kind">Constraint</label>
-   <select id="kind"><option value="email">type="email"</option><option value="num">type="number" min=1 max=10</option><option value="pat">pattern="[A-Z]{3}[0-9]{2}"</option><option value="len">required minlength=4</option></select></div>
-  <div class="field" style="margin-top:12px"><label for="probe">Try a value</label><input id="probe" type="email" required></div>
-  <p class="read" id="msg" aria-live="polite"></p><div id="flags"></div>
- </div>
-</section>
+              <div class="seg" role="group" aria-label="box-sizing">
+                <button
+                  type="button"
+                  data-bs="content-box"
+                  aria-pressed="true"
+                >
+                  content-box
+                </button>
+                <button
+                  type="button"
+                  data-bs="border-box"
+                  aria-pressed="false"
+                >
+                  border-box
+                </button>
+              </div>
+              <p class="read" id="read" aria-live="polite"></p>
+            </div>
+          </div>
 
-<section class="page" id="gallery">
- <h2>Gallery</h2>
- <p class="lede">From the first HTML lab, which used images with alt text. Your meme files weren't available to me, so these are generated placeholders. Each one still uses <code>figure</code>, <code>figcaption</code> and real <code>alt</code> text.</p>
- <div class="seg" id="tags" role="group" aria-label="Filter"></div>
- <div class="gal" id="gal" style="margin-top:14px"></div>
-</section>
+          <h2 style="margin-top: 48px">Explore the labs</h2>
+          <div class="cards" id="cards"></div>
+        </section>
 
-<section class="page" id="quiz">
- <h2>Concept quiz</h2>
- <p class="lede">Five questions on what the labs covered.</p>
- <div class="lab" id="qbox"></div>
-</section>
-</main>
-<svg class="wave" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true"><path d="M0 50 C240 10 480 80 720 45 S1200 15 1440 55 V90 H0Z"/><path d="M0 65 C300 30 520 90 800 55 S1240 35 1440 70 V90 H0Z"/></svg>
-<footer>Built with plain HTML, CSS, and JavaScript from the labs in the Web-Tech-Labs repo.</footer>
-</div>
+        <section class="page" id="schedule">
+          <h2>Class schedule</h2>
+          <p class="lede">
+            From the links and tables lab. Click a course to jump to its
+            details, using fragment links.
+          </p>
+          <div class="scroll">
+            <table>
+              <caption>Weekly class schedule, fall semester</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Time</th>
+                  <th scope="col">Monday</th>
+                  <th scope="col">Tuesday</th>
+                  <th scope="col">Wednesday</th>
+                  <th scope="col">Thursday</th>
+                  <th scope="col">Friday</th>
+                </tr>
+              </thead>
+              <tbody id="rows"></tbody>
+            </table>
+          </div>
+          <div class="courses" id="courses"></div>
+        </section>
 
-<script src="script.js" defer></script>
-</body>
+        <section class="page" id="signup">
+          <h2>Workshop sign-up</h2>
+          <p class="lede">
+            From the forms lab. HTML attributes handle the validation, CSS
+            shows the state, and the DOM builds the confirmation.
+          </p>
+          <div class="lab">
+            <form id="f" novalidate>
+              <div class="field">
+                <label for="name">Name</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  required
+                  minlength="2"
+                  autocomplete="name"
+                >
+              </div>
+              <div class="field">
+                <label for="email">Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  autocomplete="email"
+                >
+                <span class="hint">Used only to send your workshop link.</span>
+              </div>
+              <div class="field">
+                <label for="phone">Phone (optional)</label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  pattern="[0-9 +().\-]{7,}"
+                  placeholder="555-0100"
+                >
+              </div>
+
+              <fieldset>
+                <legend>Experience level</legend>
+                <label>
+                  <input
+                    type="radio"
+                    name="level"
+                    value="beginner"
+                    required
+                    checked
+                  >
+                  Beginner
+                </label>
+                <label>
+                  <input
+                    type="radio"
+                    name="level"
+                    value="intermediate"
+                  >
+                  Intermediate
+                </label>
+                <label>
+                  <input type="radio" name="level" value="advanced">
+                  Advanced
+                </label>
+              </fieldset>
+
+              <fieldset>
+                <legend>Topics you want</legend>
+                <label>
+                  <input
+                    type="checkbox"
+                    name="topics"
+                    value="CSS and layout"
+                  >
+                  CSS and layout
+                </label>
+                <label>
+                  <input
+                    type="checkbox"
+                    name="topics"
+                    value="Form validation"
+                  >
+                  Form validation
+                </label>
+                <label>
+                  <input
+                    type="checkbox"
+                    name="topics"
+                    value="DOM and JavaScript"
+                  >
+                  DOM and JavaScript
+                </label>
+              </fieldset>
+
+              <div class="field">
+                <label for="bio">
+                  One thing you want to build (optional)
+                </label>
+                <textarea
+                  id="bio"
+                  name="bio"
+                  maxlength="120"
+                ></textarea>
+                <output class="hint" for="bio" id="cnt">
+                  120 characters left
+                </output>
+              </div>
+              <button class="primary" type="submit">Reserve my spot</button>
+            </form>
+
+            <div id="done" tabindex="-1">
+              <h3>You're in.</h3>
+              <dl id="sum"></dl>
+              <button type="button" id="again">
+                Sign up another person
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <section class="page" id="progress">
+          <h2>Lab progress</h2>
+          <p class="lede">
+            Last repo check: 11 commits, lessons 8 to 11 still empty. Add
+            content there and I'll build the next pages.
+          </p>
+          <ul class="labs" id="labs"></ul>
+        </section>
+
+        <section class="page" id="responsive">
+          <h2>Responsive lab</h2>
+          <p class="lede">
+            From the box model and responsive lab. Drag the corner of the
+            dashed frame, or use the slider. The grid reacts to the frame's
+            width with container queries, the same idea as media queries.
+          </p>
+          <div class="lab">
+            <div class="ctrl">
+              <label for="fw">frame width</label>
+              <input id="fw" type="range" min="240" max="900" value="700">
+              <output id="fo">700</output>
+            </div>
+            <div id="frame">
+              <div class="g">
+                <div>One</div>
+                <div>Two</div>
+                <div>Three</div>
+                <div>Four</div>
+                <div>Five</div>
+                <div>Six</div>
+              </div>
+            </div>
+            <p class="read" id="bp" aria-live="polite"></p>
+            <p class="fluid">This heading scales with clamp()</p>
+            <p class="read">
+              Window width: <b id="vw"></b>px. Resize your browser to watch
+              the heading change size.
+            </p>
+          </div>
+          <h2 style="margin-top: 32px">Block, inline, inline-block</h2>
+          <div class="lab disp">
+            <span class="bl">block: takes the full row</span>
+            <span class="il">inline: ignores width</span>
+            <span class="il">inline: flows with text</span>
+            <span class="ib">inline-block: has a size</span>
+            <span class="ib">inline-block</span>
+          </div>
+        </section>
+
+        <section class="page" id="forms">
+          <h2>Forms lab</h2>
+          <p class="lede">
+            From the forms and HTML APIs notes. Pick a constraint, type a
+            value, and see the browser's ValidityState update live.
+          </p>
+          <div class="lab">
+            <div class="field">
+              <label for="kind">Constraint</label>
+              <select id="kind">
+                <option value="email">type="email"</option>
+                <option value="num">type="number" min=1 max=10</option>
+                <option value="pat">pattern="[A-Z]{3}[0-9]{2}"</option>
+                <option value="len">required minlength=4</option>
+              </select>
+            </div>
+            <div class="field" style="margin-top: 12px">
+              <label for="probe">Try a value</label>
+              <input id="probe" type="email" required>
+            </div>
+            <p class="read" id="msg" aria-live="polite"></p>
+            <div id="flags"></div>
+          </div>
+        </section>
+
+        <section class="page" id="gallery">
+          <h2>Gallery</h2>
+          <p class="lede">
+            From the first HTML lab, which used images with alt text. Your
+            meme files weren't available to me, so these are generated
+            placeholders. Each one still uses <code>figure</code>,
+            <code>figcaption</code> and real <code>alt</code> text.
+          </p>
+          <div class="seg" id="tags" role="group" aria-label="Filter"></div>
+          <div class="gal" id="gal" style="margin-top: 14px"></div>
+        </section>
+
+        <section class="page" id="quiz">
+          <h2>Concept quiz</h2>
+          <p class="lede">Five questions on what the labs covered.</p>
+          <div class="lab" id="qbox"></div>
+        </section>
+      </main>
+
+      <svg
+        class="wave"
+        viewBox="0 0 1440 90"
+        preserveAspectRatio="none"
+        aria-hidden="true"
+      >
+        <path d="M0 50 C240 10 480 80 720 45 S1200 15 1440 55 V90 H0Z"/>
+        <path d="M0 65 C300 30 520 90 800 55 S1240 35 1440 70 V90 H0Z"/>
+      </svg>
+
+      <footer>
+        Built with plain HTML, CSS, and JavaScript from the labs in the
+        Web-Tech-Labs repo.
+      </footer>
+    </div>
+
+    <script src="script.js" defer></script>
+  </body>
 </html>
