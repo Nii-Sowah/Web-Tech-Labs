@@ -39,7 +39,7 @@ document.getElementById("total").textContent = "Total: GHS " + subtotal.toFixed(
 
 const menuEl = document.getElementById("menu");
 
-for (let i = 0; i< items.length; i++) {
+for (let i = 0; i < items.length; i++) {
     const li = document.createElement("li");
     li.textContent = items[i] + " - GHS " + prices[i];
     menuEl.appendChild(li);
