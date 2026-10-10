@@ -28,17 +28,46 @@ This repository contains my completed labs and exercises for the HTML/CSS course
 
 ```
 /
-├── lesson-04-links-tables-images/
-│   ├── class-schedule.html
-│   └── README.md
-├── lesson-07-box-model-responsive/
+├── Lesson 1 and 2/
+│   ├── api.php
+│   ├── config.php
+│   ├── database.sql
+│   ├── index.php
+│   ├── script.js
+│   └── style.css
+├── lesson_7/
 │   ├── index.html
-│   ├── styles.css
-│   └── README.md
+│   ├── smf.jpg
+│   └── styles.css
+├── lesson_8/
+│   ├── chopbar.js
+│   └── index.html
+├── lesson_9/
+│   ├── chopbar.js
+│   └── index.html
+├── lesson_10/
+│   ├── chopbar.js
+│   └── index.html
+├── Synthesis/
+│   └── web-tech-labs-site/
+│       └── web-tech-labs-site/
+│           ├── index.html
+│           ├── README.md
+│           ├── script.js
+│           └── styles.css
+├── .github/
+│   ├── update-readme.py
+│   └── workflows/
+│       └── update-readme.yml
+├── lesson-3-lab.html
+├── lesson_4_lab.html
+├── Lesson 5(actually 6).html
+├── Lesson 6(actually 5).html
+├── lesson_11.html
 └── README.md          (this file)
 ```
 
-Each lab folder contains its own short README describing what it demonstrates, plus the source files for that lab.
+The lesson folders contain the source files for each lab. The `Synthesis` directory contains the combined multi-page showcase, while the `.github` directory contains the automation used to update this README.
 
 ## Labs completed
 
@@ -75,4 +104,3 @@ These labs follow the HTML learning path from [web.dev/learn/html](https://web.d
 ## License
 
 Coursework for personal learning purposes.
-
