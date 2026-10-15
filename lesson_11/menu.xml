@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<menu>
+  <dish><name>Jollof Rice</name><price>35</price></dish>
+  <dish><name>Waakye</name><price>30</price></dish>
+  <dish><name>Sobolo</name><price>10</price></dish>
+</menu>
