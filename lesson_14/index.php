@@ -48,7 +48,7 @@ $lines = orderLines($order);
   <p>Name property: <?php echo $jollof->name; ?></p>
   <?php
   // echo $jollof->price;
-  // Removed: price is protected, so this line causes
+  // Removed: price is protected, so this line causes a
   // "Fatal error: Uncaught Error: Cannot access protected property Dish::$price".
  
   // Cloning: the clone is a separate copy, so changing it leaves the original alone
@@ -67,15 +67,15 @@ $lines = orderLines($order);
       from outside.
     - private: can be used only inside the class that declares it, not even
       in subclasses.
-    That is why price is read through the public getPrice() method.
+
   */
   ?>
   <p>Jollof price via getPrice(): GHS <?php echo $jollof->getPrice(); ?></p>
  
-  <!-- ===== Step 7: static members ===== -->
+
   <p>Dishes created so far: <?php echo Dish::getCount(); ?></p>
  
-  <!-- ===== Step 8: inheritance ===== -->
+
   <?php $drink = new Drink("Sobolo", 10, "500ml"); ?>
   <p><?php echo $drink->describe(); ?></p>
   <p>Dishes created so far: <?php echo Dish::getCount(); ?></p>
@@ -84,8 +84,7 @@ $lines = orderLines($order);
   <h2>Destructors</h2>
   <p>
     <?php
-    // Objects are destroyed automatically when the script ends. Unsetting them
-    // here makes the destructor messages appear inside the page.
+
     unset($jollof);
     unset($sobolo);
     unset($jollofLarge);
