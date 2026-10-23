@@ -27,7 +27,12 @@ $menu = ["jollof" => 45, "waakye" => 30];
 $specials = ["waakye" => 25, "kelewele" => 15];
 $combined = $menu + $specials;
 
-
+/*
+  Waakye kept its price of 30 because the union operator (+) keeps every key
+  from the left array ($menu) and only adds keys from the right array
+  ($specials) that do not already exist on the left. "waakye" already existed
+  in $menu, so the special price of 25 was ignored.
+*/
 ?>
 
 
@@ -69,6 +74,14 @@ $combined = $menu + $specials;
 
         <h2>Step 3: Precedence and Associativity</h2>
         <?php
+            /*
+                2 + 3 * 4 = 14: multiplication has higher precedence than addition, so
+                3 * 4 = 12 is worked out first, then 2 + 12.
+                (2 + 3) * 4 = 20: brackets are worked out first, so 2 + 3 = 5, then 5 * 4.
+                20 - 5 - 3 = 12: subtraction is left-associative, so PHP works from the
+                left: (20 - 5) = 15, then 15 - 3.
+            */
+
         ?>
         <p> 2 + 3 * 4 = <?php echo 2 + 3 * 4; ?></p>
         <p>(2 + 3) * 4 = <?php echo (2 + 3) * 4; ?></p>
