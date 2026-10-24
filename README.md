@@ -48,7 +48,9 @@ coursework into a single interactive showcase.
 ├── lesson_9/              # JavaScript types, conditions, and objects
 ├── lesson_10/             # XMLHttpRequest and external data
 ├── lesson_11/             # XML/JSON menu and order requests
-├── lesson_12/             # PHP menu page and HTML menu data
+├── lesson_12/             # PHP variables, functions, and menu output
+├── lesson_13/             # PHP functions, includes, and order helpers
+├── lesson_14/             # PHP classes, objects, and visibility
 └── Synthesis/             # Combined multi-page showcase
 ```
 
@@ -66,7 +68,9 @@ coursework into a single interactive showcase.
 | [`lesson_9`](./lesson_9) | JavaScript variables, types, comparisons, conditions, objects, and dynamic content. |
 | [`lesson_10`](./lesson_10) | Loading menu data asynchronously with `XMLHttpRequest`. |
 | [`lesson_11`](./lesson_11) | Reading XML and JSON menu data and submitting an order request. |
-| [`lesson_12`](./lesson_12) | A PHP menu page that displays menu data from an HTML fragment. |
+| [`lesson_12`](./lesson_12) | PHP variables, constants, operators, scope, functions, and dynamic menu output. |
+| [`lesson_13`](./lesson_13) | Reusable PHP functions, file inclusion, order calculations, and helper functions. |
+| [`lesson_14`](./lesson_14) | Object-oriented PHP with classes, constructors, inheritance, visibility, cloning, and destructors. |
 | [`Synthesis`](./Synthesis) | A hash-routed showcase containing the schedule, forms, responsive, gallery, quiz, and progress experiences. |
 
 ## Running the labs
@@ -84,6 +88,8 @@ You can then open, for example:
 - [`lesson_4_lab.html`](./lesson_4_lab.html)
 - [`lesson_7/index.html`](./lesson_7/index.html)
 - [`lesson_12/index.php`](./lesson_12/index.php)
+- [`lesson_13/index.php`](./lesson_13/index.php)
+- [`lesson_14/index.php`](./lesson_14/index.php)
 - [`Synthesis/index.html`](./Synthesis/index.html)
 
 The labs that use `fetch` or `XMLHttpRequest` should be served from a local
@@ -110,9 +116,11 @@ The PHP API is implemented in [`api.php`](./Lesson%201%20and%202/api.php), and
 the frontend uses [`script.js`](./Lesson%201%20and%202/script.js) and
 [`style.css`](./Lesson%201%20and%202/style.css).
 
-The [`lesson_12`](./lesson_12) project also requires a PHP-capable web server.
-Serve the directory and open [`index.php`](./lesson_12/index.php) to view the
-menu page and its included [`menu.html`](./lesson_12/menu.html) fragment.
+The [`lesson_12`](./lesson_12), [`lesson_13`](./lesson_13), and
+[`lesson_14`](./lesson_14) projects also require a PHP-capable web server.
+Serve the relevant directory and open its `index.php` entry point. Lesson 12
+uses the accompanying [`menu.html`](./lesson_12/menu.html) fragment, while
+lessons 13 and 14 demonstrate reusable functions and object-oriented PHP.
 
 ## Adding a lab
 
