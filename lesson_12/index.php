@@ -22,6 +22,9 @@ $order[1][2]++;
 
 $subtotal = ($order[0][1] * $order[0][2]) + ($order[1][1] * $order[1][2]);
 
+/* difference between printing in single and double quotes is that is that single quotes will not parse variables, while double quotes will parse variables. */
+echo 'Single quotes: $barName<br>';
+echo "Double quotes: $barName<br>";
 
 $total = $subtotal;
 $total += 5;
