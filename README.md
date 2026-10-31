@@ -1,6 +1,6 @@
 # Web-Tech-Labs
 
-Last updated: <!-- START_TIMESTAMP -->2026-10-30 03:47:41 UTC<!-- END_TIMESTAMP -->
+Last updated: <!-- START_TIMESTAMP -->2026-10-30 04:26:32 UTC<!-- END_TIMESTAMP -->
 
 ## Table of Contents
 <!-- START_TOC -->
@@ -18,8 +18,8 @@ Last updated: <!-- START_TIMESTAMP -->2026-10-30 03:47:41 UTC<!-- END_TIMESTAMP 
 
 ## Repository Statistics
 <!-- START_STATS -->
-- **Total Commits:** 103
-- **Project Files Tracked:** 44
+- **Total Commits:** 107
+- **Project Files Tracked:** 46
 <!-- END_STATS -->
 
 ## About
@@ -51,6 +51,7 @@ coursework into a single interactive showcase.
 ├── lesson_12/             # PHP variables, functions, and menu output
 ├── lesson_13/             # PHP functions, includes, and order helpers
 ├── lesson_14/             # PHP classes, objects, and visibility
+├── lesson_15/             # PHP arrays, sorting, and data conversion
 └── Synthesis/             # Combined multi-page showcase
 ```
 
@@ -71,6 +72,7 @@ coursework into a single interactive showcase.
 | [`lesson_12`](./lesson_12) | PHP variables, constants, operators, scope, functions, and dynamic menu output. |
 | [`lesson_13`](./lesson_13) | Reusable PHP functions, file inclusion, order calculations, and helper functions. |
 | [`lesson_14`](./lesson_14) | Object-oriented PHP with classes, constructors, inheritance, visibility, cloning, and destructors. |
+| [`lesson_15`](./lesson_15) | PHP indexed, associative, and multidimensional arrays, iteration, sorting, and array conversion. |
 | [`Synthesis`](./Synthesis) | A hash-routed showcase containing the schedule, forms, responsive, gallery, quiz, and progress experiences. |
 
 ## Running the labs
@@ -90,6 +92,7 @@ You can then open, for example:
 - [`lesson_12/index.php`](./lesson_12/index.php)
 - [`lesson_13/index.php`](./lesson_13/index.php)
 - [`lesson_14/index.php`](./lesson_14/index.php)
+- [`lesson_15/index.php`](./lesson_15/index.php)
 - [`Synthesis/index.html`](./Synthesis/index.html)
 
 The labs that use `fetch` or `XMLHttpRequest` should be served from a local
@@ -116,11 +119,13 @@ The PHP API is implemented in [`api.php`](./Lesson%201%20and%202/api.php), and
 the frontend uses [`script.js`](./Lesson%201%20and%202/script.js) and
 [`style.css`](./Lesson%201%20and%202/style.css).
 
-The [`lesson_12`](./lesson_12), [`lesson_13`](./lesson_13), and
-[`lesson_14`](./lesson_14) projects also require a PHP-capable web server.
+The [`lesson_12`](./lesson_12), [`lesson_13`](./lesson_13),
+[`lesson_14`](./lesson_14), and [`lesson_15`](./lesson_15) projects also
+require a PHP-capable web server.
 Serve the relevant directory and open its `index.php` entry point. Lesson 12
 uses the accompanying [`menu.html`](./lesson_12/menu.html) fragment, while
 lessons 13 and 14 demonstrate reusable functions and object-oriented PHP.
+Lesson 15 demonstrates PHP arrays and common array operations.
 
 ## Adding a lab
 
