@@ -1,6 +1,6 @@
 # Web-Tech-Labs
 
-Last updated: <!-- START_TIMESTAMP -->2026-10-30 04:25:57 UTC<!-- END_TIMESTAMP -->
+Last updated: <!-- START_TIMESTAMP -->2026-10-31 02:09:11 UTC<!-- END_TIMESTAMP -->
 
 ## Table of Contents
 <!-- START_TOC -->
@@ -18,8 +18,8 @@ Last updated: <!-- START_TIMESTAMP -->2026-10-30 04:25:57 UTC<!-- END_TIMESTAMP 
 
 ## Repository Statistics
 <!-- START_STATS -->
-- **Total Commits:** 107
-- **Project Files Tracked:** 46
+- **Total Commits:** 111
+- **Project Files Tracked:** 51
 <!-- END_STATS -->
 
 ## About
@@ -39,10 +39,8 @@ coursework into a single interactive showcase.
 ├── Lesson 1 and 2/        # PHP/MySQL habit tracker
 ├── lesson-3-lab.html      # Introductory HTML lab
 ├── lesson_4_lab.html      # Links, tables, images, and schedule
-├── Lesson 5(actually 6).html
-│                           # Forms and HTML APIs
-├── Lesson 6(actually 5).html
-│                           # Forms, validation, and the DOM
+├── lesson_5.html          # Forms, validation, and the DOM
+├── lesson_6.html          # Forms and HTML APIs
 ├── lesson_7/              # CSS box model and responsive layout
 ├── lesson_8/              # JavaScript arrays, objects, and order totals
 ├── lesson_9/              # JavaScript types, conditions, and objects
@@ -52,6 +50,7 @@ coursework into a single interactive showcase.
 ├── lesson_13/             # PHP functions, includes, and order helpers
 ├── lesson_14/             # PHP classes, objects, and visibility
 ├── lesson_15/             # PHP arrays, sorting, and data conversion
+├── lesson_16/             # PHP formatting, dates, files, and uploads
 └── Synthesis/             # Combined multi-page showcase
 ```
 
@@ -62,8 +61,8 @@ coursework into a single interactive showcase.
 | [`Lesson 1 and 2`](./Lesson%201%20and%202) | A PHP/MySQL habit tracker with CRUD-style API actions, database schema, and a browser UI. |
 | [`lesson-3-lab.html`](./lesson-3-lab.html) | Basic HTML structure, headings, links, images, and page content. |
 | [`lesson_4_lab.html`](./lesson_4_lab.html) | Accessible tables, links, fragments, and a class schedule. |
-| [`Lesson 5(actually 6).html`](./Lesson%205%28actually%206%29.html) | Forms, controls, built-in validation, and HTML APIs. |
-| [`Lesson 6(actually 5).html`](./Lesson%206%28actually%205%29.html) | A live form workshop using validation, CSS state selectors, and DOM updates. |
+| [`lesson_5.html`](./lesson_5.html) | A live form workshop using validation, CSS state selectors, and DOM updates. |
+| [`lesson_6.html`](./lesson_6.html) | Forms, controls, built-in validation, and HTML APIs. |
 | [`lesson_7`](./lesson_7) | CSS box sizing, margin collapsing, layout modes, responsive images, and media queries. |
 | [`lesson_8`](./lesson_8) | JavaScript arrays, objects, functions, constructors, classes, and order calculations. |
 | [`lesson_9`](./lesson_9) | JavaScript variables, types, comparisons, conditions, objects, and dynamic content. |
@@ -73,6 +72,7 @@ coursework into a single interactive showcase.
 | [`lesson_13`](./lesson_13) | Reusable PHP functions, file inclusion, order calculations, and helper functions. |
 | [`lesson_14`](./lesson_14) | Object-oriented PHP with classes, constructors, inheritance, visibility, cloning, and destructors. |
 | [`lesson_15`](./lesson_15) | PHP indexed, associative, and multidimensional arrays, iteration, sorting, and array conversion. |
+| [`lesson_16`](./lesson_16) | PHP output formatting, date and time functions, file operations, file locking, and payment-photo uploads. |
 | [`Synthesis`](./Synthesis) | A hash-routed showcase containing the schedule, forms, responsive, gallery, quiz, and progress experiences. |
 
 ## Running the labs
@@ -88,11 +88,14 @@ cd Web-Tech-Labs
 You can then open, for example:
 
 - [`lesson_4_lab.html`](./lesson_4_lab.html)
+- [`lesson_5.html`](./lesson_5.html)
+- [`lesson_6.html`](./lesson_6.html)
 - [`lesson_7/index.html`](./lesson_7/index.html)
 - [`lesson_12/index.php`](./lesson_12/index.php)
 - [`lesson_13/index.php`](./lesson_13/index.php)
 - [`lesson_14/index.php`](./lesson_14/index.php)
 - [`lesson_15/index.php`](./lesson_15/index.php)
+- [`lesson_16/index.php`](./lesson_16/index.php)
 - [`Synthesis/index.html`](./Synthesis/index.html)
 
 The labs that use `fetch` or `XMLHttpRequest` should be served from a local
@@ -126,6 +129,10 @@ Serve the relevant directory and open its `index.php` entry point. Lesson 12
 uses the accompanying [`menu.html`](./lesson_12/menu.html) fragment, while
 lessons 13 and 14 demonstrate reusable functions and object-oriented PHP.
 Lesson 15 demonstrates PHP arrays and common array operations.
+The [`lesson_16`](./lesson_16) project demonstrates formatted output, date and
+time functions, file creation and locking, file management, and image uploads.
+It writes runtime files such as `orders.txt` and the `uploads` directory, so
+the lesson directory must be writable by the PHP process.
 
 ## Adding a lab
 
