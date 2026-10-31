@@ -2,7 +2,7 @@ const items = ["Jollof Rice", "Sobolo", "Kelewele"]
 const prices = [35, 10, 15]
 
 const BAR_NAME = "Night Market";
-const JOLLOF_RICE = 35;
+const JOLLOF_PRICE = 35;
 const SOBOLO_PRICE = 10;
 let jollofQty = "2";
 let soboloQty  = "3";

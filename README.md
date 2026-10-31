@@ -42,13 +42,13 @@ coursework into a single interactive showcase.
 ├── lesson_5.html          # Forms, validation, and the DOM
 ├── lesson_6.html          # Forms and HTML APIs
 ├── lesson_7/              # CSS box model and responsive layout
-├── lesson_8/              # JavaScript arrays, objects, and order totals
+├── lesson_8/              # JavaScript variables, types, operators, and DOM updates
 ├── lesson_9/              # JavaScript types, conditions, and objects
-├── lesson_10/             # XMLHttpRequest and external data
+├── lesson_10/             # JavaScript arrays, objects, prototypes, classes, and chaining
 ├── lesson_11/             # XML/JSON menu and order requests
 ├── lesson_12/             # PHP variables, functions, and menu output
-├── lesson_13/             # PHP functions, includes, and order helpers
-├── lesson_14/             # PHP classes, objects, and visibility
+├── lesson_13/             # PHP operators, conditionals, switches, loops, and casting
+├── lesson_14/             # PHP classes, functions, includes, and require statements
 ├── lesson_15/             # PHP arrays, sorting, and data conversion
 ├── lesson_16/             # PHP formatting, dates, files, and uploads
 └── Synthesis/             # Combined multi-page showcase
@@ -64,13 +64,13 @@ coursework into a single interactive showcase.
 | [`lesson_5.html`](./lesson_5.html) | A live form workshop using validation, CSS state selectors, and DOM updates. |
 | [`lesson_6.html`](./lesson_6.html) | Forms, controls, built-in validation, and HTML APIs. |
 | [`lesson_7`](./lesson_7) | CSS box sizing, margin collapsing, layout modes, responsive images, and media queries. |
-| [`lesson_8`](./lesson_8) | JavaScript arrays, objects, functions, constructors, classes, and order calculations. |
+| [`lesson_8`](./lesson_8) | JavaScript variables, constants, `typeof`, functions, logical operators, and updating the page with the DOM for a Chop Bar bill. |
 | [`lesson_9`](./lesson_9) | JavaScript variables, types, comparisons, conditions, objects, and dynamic content. |
-| [`lesson_10`](./lesson_10) | Loading menu data asynchronously with `XMLHttpRequest`. |
+| [`lesson_10`](./lesson_10) | JavaScript arrays, objects, functions, constructors and prototypes, classes, and method chaining. |
 | [`lesson_11`](./lesson_11) | Reading XML and JSON menu data and submitting an order request. |
 | [`lesson_12`](./lesson_12) | PHP variables, constants, operators, scope, functions, and dynamic menu output. |
-| [`lesson_13`](./lesson_13) | Reusable PHP functions, file inclusion, order calculations, and helper functions. |
-| [`lesson_14`](./lesson_14) | Object-oriented PHP with classes, constructors, inheritance, visibility, cloning, and destructors. |
+| [`lesson_13`](./lesson_13) | PHP operators, precedence, conditionals, `switch`, `for`, `while`, and `do...while` loops, `continue`, `break`, and type casting. |
+| [`lesson_14`](./lesson_14) | Object-oriented PHP with classes, constructors, inheritance, visibility, cloning, destructors, reusable functions, and `include`/`require` with their `_once` variants. |
 | [`lesson_15`](./lesson_15) | PHP indexed, associative, and multidimensional arrays, iteration, sorting, and array conversion. |
 | [`lesson_16`](./lesson_16) | PHP output formatting, date and time functions, file operations, file locking, and payment-photo uploads. |
 | [`Synthesis`](./Synthesis) | A hash-routed showcase containing the schedule, forms, responsive, gallery, quiz, and progress experiences. |
@@ -127,7 +127,9 @@ The [`lesson_12`](./lesson_12), [`lesson_13`](./lesson_13),
 require a PHP-capable web server.
 Serve the relevant directory and open its `index.php` entry point. Lesson 12
 uses the accompanying [`menu.html`](./lesson_12/menu.html) fragment, while
-lessons 13 and 14 demonstrate reusable functions and object-oriented PHP.
+lesson 13 demonstrates operators, conditionals, loops, and type casting.
+Lesson 14 demonstrates reusable functions, object-oriented PHP, and
+`include`/`require` statements.
 Lesson 15 demonstrates PHP arrays and common array operations.
 The [`lesson_16`](./lesson_16) project demonstrates formatted output, date and
 time functions, file creation and locking, file management, and image uploads.
