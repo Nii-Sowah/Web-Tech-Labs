@@ -1,6 +1,6 @@
 # Web-Tech-Labs
 
-Last updated: <!-- START_TIMESTAMP -->2026-11-10 22:37:39 UTC<!-- END_TIMESTAMP -->
+Last updated: <!-- START_TIMESTAMP -->2026-11-10 22:43:55 UTC<!-- END_TIMESTAMP -->
 
 ## Table of Contents
 <!-- START_TOC -->
@@ -18,7 +18,7 @@ Last updated: <!-- START_TIMESTAMP -->2026-11-10 22:37:39 UTC<!-- END_TIMESTAMP 
 
 ## Repository Statistics
 <!-- START_STATS -->
-- **Total Commits:** 130
+- **Total Commits:** 131
 - **Project Files Tracked:** 60
 <!-- END_STATS -->
 
@@ -154,9 +154,21 @@ also includes the accompanying [`lesson_17_video.mp4`](./lesson_17/lesson_17_vid
 
 ## Course
 
-The labs follow topics from the [web.dev Learn HTML](https://web.dev/learn/html)
-curriculum and related web development lessons, including semantic HTML,
-forms, accessibility, CSS layout, responsive design, JavaScript, and the DOM.
+These labs are for a web technologies course whose main textbook is Robin Nixon's
+*Learning PHP, MySQL & JavaScript: With jQuery, CSS & HTML5* (5th edition,
+O'Reilly, 2018). From JavaScript onward, each lab follows a chapter or group of
+chapters from the book:
+
+| Labs | Topic | Textbook chapters |
+| --- | --- | --- |
+| Lessons 8–10 | JavaScript: variables, functions, the DOM, conditions, loops, arrays, objects, prototypes and classes | 13–15 |
+| Lesson 11 | Asynchronous communication: `XMLHttpRequest`, GET and POST requests, XML and JSON | 17 |
+| Lessons 12–16 | PHP: variables and operators, control flow, functions and objects, arrays, and practical PHP (formatting, dates, files and uploads) | 3–7 |
+| Lesson 17 onward | MySQL, and reading and changing a database from PHP | 8–10 |
+
+The earlier HTML and CSS lessons (links, tables, images, forms, the box model and
+responsive design) use the [web.dev Learn HTML](https://web.dev/learn/html) course
+and [MDN](https://developer.mozilla.org/) as their source material.
 
 ## License
 
