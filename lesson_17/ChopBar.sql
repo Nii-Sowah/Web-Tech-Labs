@@ -51,8 +51,7 @@ Select * from orders;
 Select ustomer, name, qty
 from orders natural join menu;
 
-/* Natural Join doesn't need ON because it automatically joins the two tables on every column that has the same name in both tables.
-*/
+-- Natural Join doesn't need ON because it automatically joins the two tables on every column that has the same name in both tables. --
 
 select o.customer as customer,
     m.name as dish,
