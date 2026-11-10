@@ -51,6 +51,7 @@ coursework into a single interactive showcase.
 ├── lesson_14/             # PHP classes, functions, includes, and require statements
 ├── lesson_15/             # PHP arrays, sorting, and data conversion
 ├── lesson_16/             # PHP formatting, dates, files, and uploads
+├── lesson_17/             # MySQL database creation, indexes, joins, and SQL video
 └── Synthesis/             # Combined multi-page showcase
 ```
 
@@ -73,6 +74,7 @@ coursework into a single interactive showcase.
 | [`lesson_14`](./lesson_14) | Object-oriented PHP with classes, constructors, inheritance, visibility, cloning, destructors, reusable functions, and `include`/`require` with their `_once` variants. |
 | [`lesson_15`](./lesson_15) | PHP indexed, associative, and multidimensional arrays, iteration, sorting, and array conversion. |
 | [`lesson_16`](./lesson_16) | PHP output formatting, date and time functions, file operations, file locking, and payment-photo uploads. |
+| [`lesson_17`](./lesson_17) | MySQL database creation, menu and order tables, sample data, indexes, full-text search, natural joins, and inner joins. |
 | [`Synthesis`](./Synthesis) | A hash-routed showcase containing the schedule, forms, responsive, gallery, quiz, and progress experiences. |
 
 ## Running the labs
@@ -96,6 +98,7 @@ You can then open, for example:
 - [`lesson_14/index.php`](./lesson_14/index.php)
 - [`lesson_15/index.php`](./lesson_15/index.php)
 - [`lesson_16/index.php`](./lesson_16/index.php)
+- [`lesson_17/ChopBar.sql`](./lesson_17/ChopBar.sql)
 - [`Synthesis/index.html`](./Synthesis/index.html)
 
 The labs that use `fetch` or `XMLHttpRequest` should be served from a local
@@ -135,6 +138,12 @@ The [`lesson_16`](./lesson_16) project demonstrates formatted output, date and
 time functions, file creation and locking, file management, and image uploads.
 It writes runtime files such as `orders.txt` and the `uploads` directory, so
 the lesson directory must be writable by the PHP process.
+
+The [`lesson_17`](./lesson_17) project is a standalone MySQL exercise. Run
+[`ChopBar.sql`](./lesson_17/ChopBar.sql) in a MySQL client to create the
+`chopbar` database, populate the menu and orders tables, and practice indexed
+lookups, full-text search, natural joins, and filtered inner joins. The lesson
+also includes the accompanying [`lesson_17_video.mp4`](./lesson_17/lesson_17_video.mp4).
 
 ## Adding a lab
 
